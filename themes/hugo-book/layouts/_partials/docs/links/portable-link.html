@@ -9,12 +9,15 @@
   {{- $path = strings.TrimSuffix ".md" $path -}}
   {{- $path = strings.TrimSuffix "/_index" $path -}}
 
-  {{- with (.Page.GetPage $path) -}}
-    {{- $destination = .RelPermalink -}}
-  {{- else with (.Page.Resources.Get $path) -}}
-    {{- $destination = .RelPermalink -}}
-  {{- else with (resources.Get $path) -}}
-    {{- $destination = .RelPermalink -}}
+  {{- $resource := .Page.GetPage $path -}}
+  {{- if not $resource -}}
+    {{- $resource = .Page.Resources.Get $path -}}
+  {{- end -}}
+  {{- if not $resource -}}
+    {{- $resource = resources.Get $path -}}
+  {{- end -}}
+  {{- if $resource -}}
+    {{- $destination = $resource.RelPermalink -}}
   {{- else -}}
     {{- $mode := .Page.Site.Params.BookPortableLinks -}}
     {{- $message := printf "Image reference '%s' not found in '%s'" .Destination .Page.RelPermalink -}}

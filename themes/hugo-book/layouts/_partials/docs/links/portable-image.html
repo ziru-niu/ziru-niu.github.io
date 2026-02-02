@@ -8,10 +8,12 @@
   {{- $path := strings.TrimPrefix "./" $url.Path -}}
   {{- $path = strings.TrimPrefix "/assets/" $path -}}
   
-  {{- with (.Page.Resources.Get $path) -}}
-    {{- $destination = .RelPermalink -}}
-  {{- else with (resources.Get $path) -}}
-    {{- $destination = .RelPermalink -}}
+  {{- $resource := .Page.Resources.Get $path -}}
+  {{- if not $resource -}}
+    {{- $resource = resources.Get $path -}}
+  {{- end -}}
+  {{- if $resource -}}
+    {{- $destination = $resource.RelPermalink -}}
   {{- else -}}
     {{- $mode := .Page.Site.Params.BookPortableLinks -}}
     {{- $message := printf "Image reference '%s' not found in '%s'" .Destination .Page.RelPermalink -}}
