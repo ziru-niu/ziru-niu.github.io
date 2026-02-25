@@ -34,11 +34,6 @@ In each rebalancing cycle, the strategy generates predictions based on the lates
 - Rebalance Frequency: Executed once per month.
 - Automated Adjustment: Uses the set_holdings function to adjust holdings to target proportions via PortfolioTarget objects, automatically handling buy and sell logic.
 
-```python
-# Example: Initialization configuration for the DecisionTreeRegressor
-self._model = DecisionTreeRegressor(max_depth=12, random_state=1)
-```
-
 This configuration balances the model's capture capability and overfitting risk by limiting the maximum tree depth to 12.
 
 ## Backtest Results
