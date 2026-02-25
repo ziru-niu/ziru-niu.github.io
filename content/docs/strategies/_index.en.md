@@ -1,4 +1,5 @@
 ---
-title: "Machine Learning"
+title: Strategies
 bookCollapseSection: true
+weight: 30
 ---
