@@ -1,5 +1,5 @@
 ---
 title: "Machine Learning"
 bookCollapseSection: true
-weight: 20
+weight: 40
 ---

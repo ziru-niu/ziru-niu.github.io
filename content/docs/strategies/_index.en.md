@@ -1,5 +1,5 @@
 ---
 title: Strategies
 bookCollapseSection: true
-weight: 30
+weight: 20
 ---

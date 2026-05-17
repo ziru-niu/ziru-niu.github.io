@@ -1,5 +1,5 @@
 ---
-title: "Book Notes"
+title: "研究"
 bookCollapseSection: true
-weight: 30
+weight: 10
 ---
